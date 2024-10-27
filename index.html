@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="login.css"> -->
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-color: black;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .parent {
+        /* border: 5px solid red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.795);
+        z-index: 1;
+      }
+
+      .anime {
+        height: 85%;
+        width: 85%;
+        position: relative;
+        z-index: -1;
+        /* background-repeat: no-repeat; */
+      }
+
+      .logIn {
+        height: 500px;
+        width: 300px;
+        background-color: rgba(255, 255, 255, 0);
+        position: absolute;
+        border-radius: 20px;
+        border: 1px solid transparent;
+        box-shadow: 1px 1px 10px white;
+        display: flex;
+        justify-content: center;
+      }
+      .logo {
+        height: 50px;
+        width: 250px;
+        background-color: black;
+        /* border: 1px solid transparent; */
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: -30px;
+        color: rgb(204, 204, 204);
+        padding-left: 10px;
+        font-size: large;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 5px;
+        font-size: 2em;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        text-shadow: 1px 1px 5px white;
+      }
+
+      .mail {
+        height: 30px;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: 50px;
+        color: white;
+        padding-left: 10px;
+        font-size: large;
+      }
+      .mail:focus {
+        outline: none;
+        box-shadow: 1px 1px 7px rgb(140, 136, 155);
+      }
+
+      .password {
+        height: 30px;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: 110px;
+        color: white;
+        padding-left: 10px;
+        font-size: large;
+      }
+      .password:focus {
+        outline: none;
+        box-shadow: 1px 1px 7px rgb(140, 136, 155);
+      }
+
+      .forgot {
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        /* border-radius: 10px; */
+        /* box-shadow: 1px 1px 7px white; */
+        position: absolute;
+        top: 160px;
+        right: 20px;
+        color: rgb(190, 190, 190);
+        padding-left: 10px;
+        /* font-size: large; */
+      }
+      .forgot:hover {
+        cursor: pointer;
+        color: rgb(109, 109, 109);
+      }
+
+      .signin {
+        height: 30px;
+        width: 110px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: 200px;
+        color: rgb(190, 190, 190);
+        padding-left: 10px;
+        font-size: large;
+      }
+
+      .signin:hover {
+        cursor: pointer;
+        box-shadow: 1px 1px 7px rgb(140, 136, 155);
+      }
+
+      .createHeading {
+        font-size: small;
+        color: rgb(180, 180, 180);
+        position: absolute;
+        top: 245px;
+        left: 85px;
+      }
+
+      .create {
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        /* border-radius: 10px; */
+        /* box-shadow: 1px 1px 7px white; */
+        position: absolute;
+        top: 260px;
+        color: rgb(190, 190, 190);
+        padding-left: 10px;
+        /* font-size: large; */
+      }
+      .create:hover {
+        cursor: pointer;
+        color: rgb(109, 109, 109);
+      }
+
+      .line {
+        width: 100px;
+        height: 1px;
+        position: absolute;
+        top: 285px;
+        left: 30px;
+        color: rgb(122, 122, 122);
+        text-shadow: 1px 1px 10px rgb(255, 255, 255);
+        font-size: larger;
+      }
+
+      .continue {
+        color: white;
+        position: relative;
+        left: 95px;
+        height: 20px;
+        width: 100px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        /* box-shadow: 1px 1px 7px white; */
+        position: absolute;
+        top: 295px;
+        color: rgb(190, 190, 190);
+        background-color: black;
+        padding-left: 10px;
+        font-size: small;
+      }
+
+      .google {
+        height: 30px;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: 340px;
+        color: rgb(190, 190, 190);
+        padding-left: 10px;
+        font-size: large;
+        transition: background-color 0.5s;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .google:hover {
+        box-shadow: 1px 1px 7px rgb(140, 136, 155);
+      }
+      .google i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: left 0.9s;
+      }
+      .google:hover i {
+        cursor: pointer;
+        left: 600px;
+      }
+      .google span {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translate(-50%, -50%);
+        /* opacity: 0; */
+        white-space: nowrap;
+        transition: opacity 0.3s, right 0.3s;
+        color: rgb(151, 151, 151);
+      }
+      .google:hover span {
+        right: -18%;
+        opacity: 1;
+      }
+
+      .steam {
+        height: 30px;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: 390px;
+        color: rgb(190, 190, 190);
+        padding-left: 10px;
+        font-size: large;
+        transition: background-color 0.5s;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .steam:hover {
+        box-shadow: 1px 1px 7px rgb(140, 136, 155);
+      }
+      .steam i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: left 0.9s;
+      }
+      .steam:hover i {
+        cursor: pointer;
+        left: 600px;
+      }
+      .steam span {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translate(-50%, -50%);
+        /* opacity: 0; */
+        white-space: nowrap;
+        transition: opacity 0.3s, right 0.3s;
+        color: rgb(151, 151, 151);
+      }
+      .steam:hover span {
+        right: -18%;
+        opacity: 1;
+      }
+
+      .discord {
+        height: 30px;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        box-shadow: 1px 1px 7px white;
+        position: absolute;
+        top: 440px;
+        color: rgb(190, 190, 190);
+        padding-left: 10px;
+        font-size: large;
+        transition: background-color 0.5s;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .discord:hover {
+        box-shadow: 1px 1px 7px rgb(140, 136, 155);
+      }
+
+      .discord i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: left 0.9s;
+      }
+      .discord:hover i {
+        cursor: pointer;
+        left: 600px;
+      }
+      .discord span {
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        transform: translate(-50%, -50%);
+        /* opacity: 0; */
+        white-space: nowrap;
+        transition: opacity 0.3s, right 0.3s;
+        color: rgb(151, 151, 151);
+      }
+      .discord:hover span {
+        right: -18%;
+        opacity: 1;
+      }
+
+      .designer {
+        color: white;
+        position: absolute;
+        /* left: 95px; */
+        height: 40px;
+        width: 320px;
+        position: absolute;
+        top: 530px;
+        color: rgb(190, 190, 190);
+        /* background-color: rgb(82, 72, 72); */
+        padding-left: 10px;
+        text-align: center;
+        font-size: small;
+      }
+
+      /* Define the shake animation */
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-10px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(10px);
+        }
+      }
+
+      .shake-animation {
+        animation: shake 0.5s ease-in-out;
+      }
+
+      /* Media query for screens below 600px */
+      @media (max-width: 600px) {
+        .parent {
+          height: auto;
+          width: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .logIn {
+          position: absolute;
+          top: 120px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    </style>
+    <script
+      src="https://kit.fontawesome.com/56b316cfa6.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="parent">
+      <video src="video.mp4" class="anime" autoplay loop muted></video>
+      <div class="logIn">
+        <div class="logo">Gaming Arena.</div>
+        <input type="email" class="mail" placeholder="Email" />
+        <input type="password" class="password" placeholder="Password" />
+        <button class="forgot">Forgot Password</button>
+        <button class="signin">Signin</button>
+        <div class="createHeading">Don't have an account?</div>
+        <button class="create">Create Account</button>
+        <div class="line">
+          _____&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp_____
+        </div>
+        <div class="continue">or continue with</div>
+        <button class="google" onclick="google()">
+          <i class="fa-brands fa-google"></i>
+          <span class="googleT">Continue with Google</span>
+        </button>
+        <button class="steam" onclick="steam()">
+          <i class="fa-brands fa-steam"></i>
+          <span class="steamT">Continue with Steam</span>
+        </button>
+        <button class="discord" onclick="discord()">
+          <i class="fa-brands fa-discord"></i>
+          <span class="discorT">Continue with Discord</span>
+        </button>
+        <div class="designer">
+          Desgined By: Abdullah <br />Contact: abdullahazmat11@outlook.com
+          <br />All Copyrights © Reserved
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Add an event listener for keydown event
+      document.addEventListener("keydown", function (event) {
+        // Check if the pressed key is Enter (key code 13)
+        if (event.keyCode === 13) {
+          // Add the class to the body to trigger the shake animation
+          document.body.classList.add("shake-animation");
+
+          // Remove the class after the animation is complete
+          setTimeout(function () {
+            document.body.classList.remove("shake-animation");
+          }, 500);
+        }
+      });
+
+      function google() {
+        window.location.href =
+          "https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%3Fhl%3Den-GB&ec=GAlA8wE&hl=en-GB&flowName=GlifWebSignIn&flowEntry=AddSession&dsh=S-854828422%3A1706612081171300&theme=glif";
+      }
+      function steam() {
+        window.location.href = "https://store.steampowered.com/login/";
+      }
+      function discord() {
+        window.location.href = "https://discord.com/login";
+      }
+    </script>
+  </body>
+</html>
